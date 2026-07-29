@@ -17,5 +17,5 @@ class Car(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f'{self.brand} {self.model} ({self.licence_plate})'
+        return f'{self.brand} {self.model} ({self.license_plate})'
 

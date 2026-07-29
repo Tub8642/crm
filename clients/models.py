@@ -8,7 +8,7 @@ class Client(models.Model):
         help_text='Полное имя клиента'
     )
     phone_regex = RegexValidator(
-        regex=r'^\+?1?\d{9, 15}$',
+        regex=r'^\+7\d{10}$',
         message="Телефон должен быть в формате: '+79000000000'"
     )
     phone = models.CharField(

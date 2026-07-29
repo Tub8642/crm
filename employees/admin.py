@@ -7,7 +7,7 @@ class EmployeeAdmin(admin.ModelAdmin):
     search_fields = ('name', 'phone', 'email')
     list_filter = ('position', 'salary_type', 'is_active', 'hire_date')
     list_editable = ('is_active',)
-    readonly_fields = ('created_at', 'updated_at')
+    readonly_fields = ('created_at', 'updated_at', 'hire_date')
     fieldsets = (
         ('Основное', {
             'fields': ('name', 'position', 'phone', 'email', 'hire_date')

@@ -4,7 +4,7 @@ from .models import Car
 @admin.register(Car)
 class CarAdmin(admin.ModelAdmin):
     list_display = ('license_plate', 'brand', 'model', 'year', 'client', 'vin', 'created_at')
-    search_fields = ('licence_plate', 'vin', 'brand', 'model', 'client__name', 'client__phone')
+    search_fields = ('license_plate', 'vin', 'brand', 'model', 'client__name', 'client__phone')
     list_filter = ('year', 'brand', 'client')
     readonly_fields = ('created_at',)
     ordering = ('-created_at',)

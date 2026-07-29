@@ -15,12 +15,13 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv(BASE_DIR / '.env')
+load_dotenv('/home/anton/crm_detailing/.env')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-3_t_ug1hw6_4h&#0m@1egyqip8(=$)c0cv$)y=!28a+qw!(6k*'
+SECRET_KEY = os.getenv('SECRET_KEY', 'django-insecure-3_t_ug1hw6_4h&#0m@1egyqip8(=$)c0cv$)y=!28a+qw!(6k*')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
