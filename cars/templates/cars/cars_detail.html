@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Автомобиль</title>
+</head>
+<body>
+    <h1>{{ car.brand }} {{ car.model }}</h1>
+    <p><strong>Владелец:</strong> {{ car.client.name }}</p>
+    <p><strong>Год:</strong> {{ car.year }}</p>
+    <p><strong>VIN:</strong> {{ car.vin|default:"не указан" }}</p>
+    <p><strong>Госномер:</strong> {{ car.license_plate }}</p>
+    <p><strong>Пробег:</strong> {{ car.mileage|default:"не указан" }} км</p>
+    <p><a href="{% url 'cars:list' %}">Назад к списку</a></p>
+</body>
+</html>

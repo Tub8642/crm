@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Клиент</title>
+</head>
+<body>
+    <h1>{{ client.name }}</h1>
+    <p>Телефон: {{ client.phone }}</p>
+    <p>Email: {{ client.email|default:"не указан" }}</p>
+    <p>Дата регистрации: {{ client.created_at }}</p>
+    <a href="{% url 'clients:list' %}">Назад к списку</a>
+</body>
+</html>
