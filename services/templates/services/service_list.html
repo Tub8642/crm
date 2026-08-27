@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Услуги</title>
+</head>
+<body>
+    <h1>Список услуг</h1>
+    <ul>
+        {% for service in services %}
+            <li>
+                <a href="{% url 'services:detail' service.pk %}">
+                    {{ service.name }} ({{ service.base_price }} руб.)
+                </a>
+                <span>Категория: {{ service.get_category_display }}</span>
+            </li>
+        {% empty %}
+            <li>Нет услуг</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

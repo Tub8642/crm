@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ employee.name }}</title>
+</head>
+<body>
+    <h1>{{ employee.name }}</h1>
+    <p><strong>Должность:</strong> {{ employee.get_position_display }}</p>
+    <p><strong>Телефон:</strong> {{ employee.phone }}</p>
+    <p><strong>Email:</strong> {{ employee.email|default:"не указан" }}</p>
+    <p><strong>Дата приёма:</strong> {{ employee.hire_date }}</p>
+    <p><strong>Тип оплаты:</strong> {{ employee.get_salary_type_display }}</p>
+    <p><strong>Ставка / %:</strong> {{ employee.salary_amount }}</p>
+    <p><strong>Активен:</strong> {% if employee.is_active %}Да{% else %}Нет{% endif %}</p>
+    <p><strong>Примечания:</strong> {{ employee.notes|default:"нет" }}</p>
+    <a href="{% url 'employees:list' %}">Назад к списку</a>
+</body>
+</html>

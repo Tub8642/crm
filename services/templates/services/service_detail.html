@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ service.name }}</title>
+</head>
+<body>
+    <h1>{{ service.name }}</h1>
+    <p><strong>Категория:</strong> {{ service.get_category_display }}</p>
+    <p><strong>Цена:</strong> {{ service.base_price }} руб.</p>
+    <p><strong>Описание:</strong> {{ service.description|default:"нет" }}</p>
+    <p><strong>Длительность:</strong> {{ service.duration_minutes|default:"не указана" }} мин.</p>
+    <p><strong>Единица измерения:</strong> {{ service.unit }}</p>
+    <p><strong>Активна:</strong> {% if service.is_active %}Да{% else %}Нет{% endif %}</p>
+    <a href="{% url 'services:list' %}">Назад к списку</a>
+</body>
+</html>

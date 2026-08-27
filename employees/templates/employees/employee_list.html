@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Сотрудники</title>
+</head>
+<body>
+    <h1>Список сотрудников</h1>
+    <ul>
+        {% for employee in employees %}
+            <li>
+                <a href="{% url 'employees:detail' employee.pk %}">
+                    {{ employee.name }}
+                </a>
+                <span>Должность: {{ employee.get_position_display }}</span>
+            </li>
+        {% empty %}
+            <li>Нет сотрудников</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
