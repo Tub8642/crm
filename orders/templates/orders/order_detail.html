@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заказ #{{ order.id }}</title>
+</head>
+<body>
+    <h1>Заказ #{{ order.id }}</h1>
+    <p><strong>Клиент:</strong> {{ order.client.name }}</p>
+    <p><strong>Автомобиль:</strong> {{ order.car.brand }} {{ order.car.model }} ({{ order.car.license_plate }})</p>
+    <p><strong>Статус:</strong> {{ order.get_status_display }}</p>
+    <p><strong>Дата приёма:</strong> {{ order.date_received }}</p>
+    <p><strong>Плановая выдача:</strong> {{ order.date_due|default:"не указана" }}</p>
+    <p><strong>Итоговая стоимость:</strong> {{ order.total_price }} руб.</p>
+    <p><strong>Комментарий:</strong> {{ order.notes|default:"нет" }}</p>
+
+    <h2>Услуги в заказе</h2>
+    <ul>
+        {% for item in order.orderservice_set.all %}
+            <li>{{ item.service.name }} x {{ item.quantity }} = {{ item.price }} руб.</li>
+        {% empty %}
+            <li>Услуг пока нет</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'orders:list' %}">Назад к списку</a>
+</body>
+</html>

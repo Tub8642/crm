@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Заказы</title>
+</head>
+<body>
+    <h1>Список заказов</h1>
+    <ul>
+        {% for order in orders %}
+            <li>
+                <a href="{% url 'orders:detail' order.pk %}">
+                    Заказ #{{ order.id }} — {{ order.car }} ({{ order.client }})
+                </a>
+                <span>Статус: {{ order.get_status_display }}</span>
+            </li>
+        {% empty %}
+            <li>Нет заказов</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
