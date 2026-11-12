@@ -15,7 +15,7 @@ from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-load_dotenv('/home/anton/crm_detailing/.env')
+load_dotenv(BASE_DIR / '.env')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
@@ -76,16 +76,15 @@ WSGI_APPLICATION = 'crm_detailing.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-load_dotenv()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME':os.getenv('crm_db'),
-	'USER':os.getenv('anton'),
-	'PASSWORD':os.getenv('Di9nzw55'),
-	'HOST':os.getenv('localhost'),
-	'PORT':os.getenv('5432'),
+        'NAME':os.getenv('DB_NAME'),
+	'USER':os.getenv('DB_USER'),
+	'PASSWORD':os.getenv('DB_PASSWORD'),
+	'HOST':os.getenv('DB_HOST'),
+	'PORT':os.getenv('DB_PORT'),
 	'OPTIONS': {
 		'options': '-c search_path=public',
 	},
