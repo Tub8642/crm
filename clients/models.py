@@ -3,13 +3,13 @@ from django.core.validators import RegexValidator
 
 class Client(models.Model):
     name = models.CharField(
-        'ФИО',
+        'имя клиента',
         max_length=200,
         help_text='Полное имя клиента'
     )
     phone_regex = RegexValidator(
         regex=r'^\+7\d{10}$',
-        message="Телефон должен быть в формате: '+79000000000'"
+        message="Телефон должен быть в формате: '+79528032100'"
     )
     phone = models.CharField(
         'Телефон',
@@ -47,10 +47,6 @@ class Client(models.Model):
         ordering = ['-created_at']
         verbose_name = 'Клиент'
         verbose_name_plural = 'Клиенты'
-        indexes = [
-            models.Index(fields=['phone']),
-            models.Index(fields=['name']),
-        ]
 
     def __str__(self):
         return f'{self.name} ({self.phone})'

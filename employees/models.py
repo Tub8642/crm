@@ -12,6 +12,7 @@ class Employee(models.Model):
     SALARY_TYPE_CHOICES = [
         ('fixed', 'Фиксированная'),
         ('percentage', 'Процент от выручки'),
+        ('mixed', 'Оклад + процент'),
     ]
 
     name = models.CharField('ФИО', max_length=200, db_index=True)
@@ -21,10 +22,18 @@ class Employee(models.Model):
     hire_date = models.DateField('Дата приёма', auto_now_add=True)
     salary_type = models.CharField('Тип оплаты', max_length=20, choices=SALARY_TYPE_CHOICES, default='fixed')
     salary_amount = models.DecimalField(
-        'Ставка / %',
+        'Оклад, руб.',
         max_digits=10,
         decimal_places=2,
-        help_text='Для фиксированной — сумма в рублях, для процента — доля от выручки (например, 0.15 = 15%)'
+        default=0,
+        help_text='сумма в рублях'
+    )
+    percentage_rate = models.DecimalField(
+        'Процент от выручки',
+        max_digits=5,
+        decimal_places=2,
+        default=0,
+        help_text='например 30 = 30%'
     )
     is_active = models.BooleanField('Активен', default=True)
     notes = models.TextField('Примечания', blank=True)
